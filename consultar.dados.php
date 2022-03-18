@@ -2,25 +2,10 @@
 include('conexao.php');
 
 //Montando Query
-$sql="SELECT * FROM `clientes`";
+$sql = "SELECT * FROM `clientes`";
 
 //Execultando o sql 
-$reultado = mysqli_query($conexao,$sql);
-
-//laço para ler vetor
-while($linha = $reultado->fetch_assoc()){
-            $nome = $linha['nome'];
-            $cidade = $linha['cidade'];
-            $idade = $linha['idade'];
-            $email = $linha['email'];
-}
-
-//Exibindo Valores
-echo  $nome."<br>";
-echo  $cidade."<br>";
-echo  $idade."<br>";
-echo  $email."<br>";
-
+$reultado = mysqli_query($conexao, $sql);
 
 
 ?>
@@ -37,24 +22,44 @@ echo  $email."<br>";
 </head>
 
 <body>
-    <form action="cadastrando.form.php" method="post">
-        Nome: <input type="text" name="nome" id="" value="" >
-        <br>
-        Cidade: <input type="text" name="cidade" value="" id="">
-        <br>
-        Idade: <input type="text" name="idade" value="" id="">
-        <br>
-        E-mail: <input type="email" name="email" value="" id="">
-        <br>
-        <button type="submit">####</button>
-        <hr>
 
-    </form>
 
     <hr>
 
-    <!-- Tabela de Consultar-->
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
 
+
+    <!-- Tabela de Consultar-->
+    <table style="  border: 1px solid black;">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Cidade</th>
+        <th>Idade</th>
+        <th>E-mail</th>
+
+        <?php
+            //laço para ler vetor
+            while ($linha = $reultado->fetch_assoc()) {
+        ?>
+
+        <tr>
+            <td><?= $linha['id']?></td>
+            <td><?= $linha['nome']?></td>
+            <td><?= $linha['cidade']?></td>
+            <td><?= $linha['idade']?></td>
+            <td><?= $linha['email']?></td>
+            <td><button>Editar</button></td>
+        </tr>
+        <?php
+            }
+        ?>
+
+    </table>
 
 
 </body>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="display: none;" id="div_do_alefe">
+        O alefe não come cuscuz
+    </div>
+    <form action="" method="post">
+        Usuario: <input type="text" name="" id="nome">
+        <br>Senha <input type="text" name="" id="">
+
+        <br> <button onclick="ver()" type="button">Enviar</button>
+    </form>
+
+    <script>
+        var user = document.getElementById('nome')
+        var div = document.getElementById('div_do_alefe')
+
+        function ver() {
+            if (user.value == 'fla') {
+                div.style.display = 'block'
+            }
+        }
+
+
+        //var senha =
+    </script>
+
+</body>
+
+</html>
